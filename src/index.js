@@ -9,9 +9,9 @@ const connect = require("./db");
 app.use(cors());
 app.use(express.json());
 
-const MovieController = require("./Controllers/movie-app.controller");
+const Movie_controller = require("./Controllers/movie-app.controller");
 
-app.use("/moviedata", MovieController);
+app.use("/movie", Movie_controller);
 
 const port = process.env.PORT || 7890;
 
@@ -19,8 +19,8 @@ app.listen(port, async () => {
   try {
     await connect();
     console.log("Listening to the port 7890");
-  } catch (e) {
-    console.log(e.message);
+  } catch(err) {
+    console.log(err.message);
   }
 });
 
